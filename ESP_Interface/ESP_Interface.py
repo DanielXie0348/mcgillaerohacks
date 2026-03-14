@@ -33,20 +33,20 @@ def send_commands(thrust, pitch, roll):
     Send thrust + pitch + roll to the drone.
     Rate limited to 20 Hz. Ignored if emergency stop is active.
  
-    thrust : 0 – 250   (same on all 4 motors)
-    pitch  : -10 – 10  (degrees-ish, forward/back)
-    roll   : -10 – 10  (degrees-ish, left/right)
+    thrust : 0 to 250   (same on all 4 motors)
+    pitch  : -10 to 10  (degrees-ish, forward/back)
+    roll   : -10 to 10  (degrees-ish, left/right)
     """
-    global _last_send
+    global last_send
  
     if emergency:
         return
  
     # rate limiter
     now = time.time()
-    if now - _last_send < MIN_INTERVAL:
+    if now - last_send < MIN_INTERVAL:
         return
-    _last_send = now
+    last_send = now
  
     # clamp for safety
     thrust = max(0,   min(250, thrust))
