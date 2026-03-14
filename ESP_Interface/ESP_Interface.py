@@ -1,7 +1,7 @@
 import time
 import threading
 import keyboard
-from drone_rc import (
+from ESP_Interface.drone_rc import (
     set_mode, manual_thrusts, set_pitch, set_roll,
     set_yaw, emergency_stop, reset_integral,
     red_LED, green_LED, blue_LED
