@@ -1,13 +1,10 @@
 import time
 from Controller.controller import compute_commands
+from State_Estimation.state_estimation import get_position
 from ESP_Interface.ESP_Interface import (
     start, takeoff, send_commands, is_emergency, start_keyboard_listener
 )
 
-def get_position():
-    # Placeholder for computer vision code to determine drone's position
-    # In a real implementation, this would use OpenCV to process camera input
-    return 0,0,0 # x, y, z coordinates
 
 LOOP_HZ     = 20 # Frequency is 20 Hertz
 LOOP_PERIOD = 1.0 / LOOP_HZ   # 0.05 seconds
